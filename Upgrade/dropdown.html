@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Alert with Dropdown</title>
+</head>
+<body>
+
+<button onclick="showAlertWithDropdown()">Show Alert</button>
+
+<script>
+function showAlertWithDropdown() {
+  // Create the dropdown HTML
+  const dropdownHTML = `
+    <select id="alertDropdown">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+      <option value="option3">Option 3</option>
+    </select>
+  `;
+
+  // Create the alert message with the dropdown
+  const alertMessage = `
+    Please select an option:
+    <br><br>
+    ${dropdownHTML}
+  `;
+
+  // Display the alert
+  const alertDiv = document.createElement('div');
+  alertDiv.innerHTML = alertMessage;
+
+  //create ok and cancel buttons.
+  const okButton = document.createElement('button');
+  okButton.textContent = "OK";
+  okButton.onclick = function(){
+    const selectedValue = document.getElementById('alertDropdown').value;
+    alert("You selected: " + selectedValue);
+    document.body.removeChild(alertDiv); //remove alert.
+  };
+
+  const cancelButton = document.createElement('button');
+  cancelButton.textContent = "Cancel";
+  cancelButton.onclick = function(){
+    document.body.removeChild(alertDiv); //remove alert
+  };
+
+  alertDiv.appendChild(okButton);
+  alertDiv.appendChild(cancelButton);
+
+  // Style the alert (optional)
+  alertDiv.style.position = 'fixed';
+  alertDiv.style.top = '50%';
+  alertDiv.style.left = '50%';
+  alertDiv.style.transform = 'translate(-50%, -50%)';
+  alertDiv.style.backgroundColor = 'white';
+  alertDiv.style.border = '1px solid #ccc';
+  alertDiv.style.padding = '20px';
+  alertDiv.style.zIndex = '1000'; // Ensure it's on top
+
+  // Add the alert to the body
+  document.body.appendChild(alertDiv);
+}
+</script>
+
+</body>
+</html>
