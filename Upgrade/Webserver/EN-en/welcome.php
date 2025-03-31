@@ -8,6 +8,11 @@
 <head lang="en">
     <title>AUTO BARISTA MACHINE</title>
     <h1> Welcome to Auto Barista Machine</h1>
+    <h2>
+        <script>
+            let currentTime=new Date();
+        </script>
+    </h2>
 </head>
 <body lang="en">
     <img src="https://product.hstatic.net/200000264775/product/cafe_den_8c37f8d6f02a4ac39e0aaead6b1ca459_master.jpg" alt="Clickable Image" 
