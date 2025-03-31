@@ -10,8 +10,9 @@
     <h1> Welcome to Auto Barista Machine</h1>
     <h2>
         <script>
-            let currentTime=new Date();
+            document.getElementById("Time").innerHTML = new Date();
         </script>
+        <span id="Time"></span>
     </h2>
 </head>
 <body lang="en">
