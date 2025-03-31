@@ -40,6 +40,30 @@
         function updateValueML(val) {
             document.getElementById('milkValue').textContent = val;
         }
+        document.addEventListener("DOMContentLoaded", function() {
+                document.getElementById("submitBtn").onclick = async function() {
+                    await sendIngredientQuantity()
+                }
+            })
+
+            async function sendIngredientQuantity() {
+                const sugarValue = document.getElementById("sugarValue").textContent
+                const coffeeValue = document.getElementById("coffeeValue").textContent
+                const response = await fetch('http://127.0.0.1:8085/pumphandle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        sugar: sugarValue,
+                        coffee: coffeeValue
+                    })
+                })
+                if (response.ok) alert('POST ok')
+                else {
+                    console.log(response.status)
+                }
+            }
     </script>
 </form>
 </body>
