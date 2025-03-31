@@ -28,7 +28,7 @@
                oninput="updateValueML(this.value)">
         <output id="milkValue"><?php echo isset($_POST['milk']) ? htmlspecialchars($_POST['milk']) : 500; ?></output>
     <br>
-    <input type="submit" value="Submit">
+    <input id="submitBtn" type="submit" value="Submit">
     <script>
         // Update displayed value in real-time
         function updateValueCF(val) {
@@ -44,7 +44,7 @@
             })
 
             async function sendIngredientQuantity() {
-                const sugarValue = document.getElementById("milkValue").textContent
+                const milkValue = document.getElementById("milkValue").textContent
                 const coffeeValue = document.getElementById("coffeeValue").textContent
                 const response = await fetch('http://127.0.0.1:8085/pumphandle', {
                     method: 'POST',
@@ -52,7 +52,7 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        milk: milkValue,
+                        sugar: milkValue,
                         coffee: coffeeValue
                     })
                 })
