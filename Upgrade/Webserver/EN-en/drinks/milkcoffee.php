@@ -1,11 +1,11 @@
 <?php
     session_start();
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $coffeeValue = isset($_POST['coffee']) ? $_POST['coffee'] : null;
-        echo "<p>Coffee received value: " . htmlspecialchars($coffeeValue) . "</p>";
-        $milkValue = isset($_POST['milk']) ? $_POST['milk'] : null;
-        echo "<p>Milk received value: " . htmlspecialchars($milkValue) . "</p>";
-    }
+    // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //     $coffeeValue = isset($_POST['coffee']) ? $_POST['coffee'] : null;
+    //     echo "<p>Coffee received value: " . htmlspecialchars($coffeeValue) . "</p>";
+    //     $milkValue = isset($_POST['milk']) ? $_POST['milk'] : null;
+    //     echo "<p>Milk received value: " . htmlspecialchars($milkValue) . "</p>";
+    // }
 ?>
 
 <!DOCTYPE html>
@@ -17,10 +17,7 @@
 </head>
 
 <body lang="en">
-<form 
-    action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"
-    method="POST"
-    >
+<form onsubmit="return false">
     <label for="coffee">Coffee:</label>
         <input type="range" id="coffee" name="coffee" min="0" max="1000" value="<?php echo isset($_POST['coffee']) ? $_POST['coffee'] : 500; ?>"
                oninput="updateValueCF(this.value)">
@@ -47,7 +44,7 @@
             })
 
             async function sendIngredientQuantity() {
-                const sugarValue = document.getElementById("sugarValue").textContent
+                const sugarValue = document.getElementById("milkValue").textContent
                 const coffeeValue = document.getElementById("coffeeValue").textContent
                 const response = await fetch('http://127.0.0.1:8085/pumphandle', {
                     method: 'POST',
@@ -55,7 +52,7 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        sugar: sugarValue,
+                        milk: milkValue,
                         coffee: coffeeValue
                     })
                 })
