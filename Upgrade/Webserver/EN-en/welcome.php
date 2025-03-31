@@ -8,11 +8,15 @@
 <head lang="en">
     <title>AUTO BARISTA MACHINE</title>
     <h1> Welcome to Auto Barista Machine</h1>
-    <h2>
+    <h2 id = "Time">
         <script>
-            document.getElementById("Time").innerHTML = new Date();
+            currentTime= new Date();
+            let Day = currentTime.getDate() + "/" + (currentTime.getMonth() + 1) + "/" + currentTime.getFullYear();
+            let time = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+            console.log(Day);
+            console.log(time);
+            document.getElementById("Time").innerHTML = Day + " " + time;
         </script>
-        <span id="Time"></span>
     </h2>
 </head>
 <body lang="en">
