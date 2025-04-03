@@ -19,7 +19,7 @@ def run_step(pin,dir,time):
 try:
     while True:
         run_step(1,1,1)
-        sleep(1)
+        time.sleep(1)
 
      
 except KeyboardInterrupt:
