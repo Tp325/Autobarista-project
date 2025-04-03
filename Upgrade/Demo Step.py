@@ -13,13 +13,13 @@ for a in range(len(step_enpin)-1):
 def run_step(pin,dir,time):
     gpio.output(step_dirpin[pin],dir)
     gpio.output(step_enpin[pin],gpio.HIGH)
-    time.sleep(time)
+    sleep(time)
     gpio.output(step_enpin[pin],gpio.LOW)
 
 try:
     while True:
         run_step(1,1,1)
-        time.sleep(1)
+        sleep(1)
 
      
 except KeyboardInterrupt:
