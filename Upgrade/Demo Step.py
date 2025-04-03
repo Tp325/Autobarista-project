@@ -10,25 +10,17 @@ for a in range(len(step_enpin)-1):
     gpio.setup(step_dirpin[a], gpio.OUT)
     gpio.output(step_dirpin[a],0)
 
+def run_step(pin,dir,time):
+    gpio.output(step_dirpin[pin],dir)
+    gpio.output(step_enpin[pin],gpio.HIGH)
+    sleep(time)
+    gpio.output(step_enpin[pin],gpio.LOW)
+
 try:
     while True:
-        print('Direction CW')
-        sleep(.5)
-        gpio.output(direction_pin,cw_direction)
-        for x in range(200):
-            gpio.output(pulse_pin,gpio.HIGH)
-            sleep(.001)
-            gpio.output(pulse_pin,gpio.LOW)
-            sleep(.0005)
+        run_step(1,1,1)
+        sleep(1)
 
-        print('Direction CCW')
-        sleep(.5)
-        gpio.output(direction_pin,ccw_direction)
-        for x in range(200):
-            gpio.output(pulse_pin,gpio.HIGH)
-            sleep(.001)
-            gpio.output(pulse_pin,gpio.LOW)
-            sleep(.0005)
-
+     
 except KeyboardInterrupt:
     gpio.cleanup()
