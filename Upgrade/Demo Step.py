@@ -1,11 +1,7 @@
 import RPi.GPIO as gpio
 from time import sleep
 
-
-direction_pin   = 20
-pulse_pin       = 21
-cw_direction    = 0 
-ccw_direction   = 1 
+Step_pin = [23,24,25,16]
 
 gpio.setmode(gpio.BCM)
 gpio.setup(direction_pin, gpio.OUT)
