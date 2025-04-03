@@ -1,12 +1,14 @@
 import RPi.GPIO as gpio
 from time import sleep
 
-Step_pin = [23,24,25,16]
+step_enpin = [23,25,7,12]
+step_dirpin = [24,8,1,16]
 
 gpio.setmode(gpio.BCM)
-gpio.setup(direction_pin, gpio.OUT)
-gpio.setup(pulse_pin, gpio.OUT)
-gpio.output(direction_pin,cw_direction)
+for a in range(len(step_enpin)-1):
+    gpio.setup(step_enpin[a], gpio.OUT)
+    gpio.setup(step_dirpin[a], gpio.OUT)
+    gpio.output(step_dirpin[a],0)
 
 try:
     while True:
