@@ -13,7 +13,7 @@ for a in range(len(step_enpin)-1):
 def run_step(pin,dir,time):
     gpio.output(step_dirpin[pin],dir)
     gpio.output(step_enpin[pin],gpio.HIGH)
-    sleep(time)
+    time.sleep(time)
     gpio.output(step_enpin[pin],gpio.LOW)
 
 try:
