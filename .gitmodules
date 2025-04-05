@@ -1,0 +1,3 @@
+[submodule "submodule-repo"]
+    path = R_BaristaWeb
+    url = https://github.com/tran-learner/BaristaWeb
