@@ -1,3 +1,15 @@
 [submodule "submodule-repo"]
     path = R_BaristaWeb
     url = https://github.com/tran-learner/BaristaWeb
+[submodule "G-A_Detection"]
+	path = G-A_Detection
+	url = https://github.com/tran-learner/G-A_Detection
+[submodule "Project_Speech_Recognition"]
+	path = Project_Speech_Recognition
+	url = https://github.com/NguyenHien-8/Project_Speech_Recognition
+[submodule "HardwareServer"]
+	path = HardwareServer
+	url = https://github.com/tran-learner/HWServer
+[submodule "simulationForTest"]
+	path = simulationForTest
+	url = https://github.com/tran-learner/serverfortest
